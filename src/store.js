@@ -2,7 +2,7 @@ import { action, observable } from 'mobx'
 import axios from 'axios'
 import bg from './assets/bg.mp3'
 import bumper from './assets/bumper.mp3'
-import finalBumper from './assets/final-bumper.mp3'
+import finalBumper from './assets/final_bumper.mp3'
 
 class Store {
   @observable questions = []
