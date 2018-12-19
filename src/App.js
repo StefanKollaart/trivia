@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Video from './video.js'
-import QuestionBoard from './question-board.js'
 import store from './store'
 import './App.css';
+import { observer } from 'mobx-react'
+import Game from './game'
+import StartScreen from './start-screen'
 
-export default class extends Component {
+export default @observer class App extends Component {
   constructor(props) {
     super(props)
 
@@ -18,9 +19,9 @@ export default class extends Component {
   render() {
     return (
       <div className="app">
+        <audio src={this.store.audioFile} autoPlay />
         <div className="app-container">
-          <Video />
-          <QuestionBoard />
+          {this.store.started ? <Game /> : <StartScreen />}
         </div>
       </div>
     );
