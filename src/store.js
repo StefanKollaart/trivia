@@ -6,7 +6,7 @@ import finalBumper from './assets/final-bumper.mp3'
 
 class Store {
   @observable questions = []
-  @observable playerCount = 14951
+  @observable playerCount = 0
   @observable currentQuestion = -1
   @observable questionsWrong = 0
   @observable timer = 100
@@ -24,6 +24,7 @@ class Store {
   @action fetchQuestions() {
     axios.get('https://www.liquid-paint.nl/quiz.json').then((res) => {
       this.questions = res.data
+      this.playerCount = res.data.length * 2000 + (Math.floor(Math.random() * 500) + 200)
     })
   }
 
@@ -82,7 +83,7 @@ class Store {
     if ((this.questions.length) == this.currentQuestion + 1) {
       this.audioFile = finalBumper
     }
-    var losers = Math.floor(Math.random() * 1500) + 1000
+    var losers = Math.floor(Math.random() * 2000) + 1000
     var newPlayers = this.playerCount - losers
     var perItem = Math.floor(losers / 200)
     this.isCountingDownPlayers = true
