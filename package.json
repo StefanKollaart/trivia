@@ -2,6 +2,7 @@
   "name": "quiz",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://stefankollaart.github.io/trivia",
   "dependencies": {
     "@babel/core": "7.1.0",
     "@babel/plugin-proposal-class-properties": "^7.2.1",
