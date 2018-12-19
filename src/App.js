@@ -1,28 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import Video from './video.js'
+import QuestionBoard from './question-board.js'
+import store from './store'
 import './App.css';
 
-class App extends Component {
+export default class extends Component {
+  constructor(props) {
+    super(props)
+
+    this.store = store
+  }
+
+  componentDidMount() {
+    this.store.fetchQuestions()
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+        <div className="app-container">
+          <Video />
+          <QuestionBoard />
+        </div>
       </div>
     );
   }
 }
-
-export default App;
